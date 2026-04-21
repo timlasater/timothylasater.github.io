@@ -205,7 +205,7 @@ footer {
 /* --- Parallax Hero Section --- */
 .parallax-hero {
     /* The linear-gradient adds a 50% dark tint over your image so the text pops */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/sinus-setup-1.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/sinus-setup.jpg');
     
     /* The magic property that keeps the image fixed while scrolling */
     background-attachment: fixed;
