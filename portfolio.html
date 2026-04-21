@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Timothy Lasater</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Timothy Lasater</h1>
+        <p>Biomedical Engineering @ UC Irvine | Medical Device R&D</p>
+        <p class="contact-info">
+            <a href="mailto:timothy.a.lasater@gmail.com">timothy.a.lasater@gmail.com</a> | 
+            (949) 291-3592 | 
+            <a href="https://linkedin.com/in/timothy-lasater" target="_blank">LinkedIn</a>
+        </p>
+        <a href="assets/Timothy_Lasater_Resume.pdf" class="floating-resume-btn" download>Download Resume</a>
+    </header>
+    
+    <nav>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="resume.html">Resume</a> 
+   </nav>
+
+    <div class="portfolio-container">
+        <aside class="sidebar" id="toc-container"></aside>
+
+        <main class="portfolio-content" id="projects-container"></main>
+    </div>
+
+    <footer>
+        <p>© 2026 Timothy Lasater | Built with GitHub Pages</p>
+    </footer>
+    
+    <script>
+        // 1. Fetch the JSON data
+        fetch('portfolio.json')
+            .then(response => response.json())
+            .then(data => {
+                const tocContainer = document.getElementById('toc-container');
+                const projectsContainer = document.getElementById('projects-container');
+                
+                let tocHTML = '';
+                let projectsHTML = '';
+
+                // Loop through each Section (Professional, Class, Everyday)
+                data.sections.forEach(section => {
+                    // --- Build Sidebar Section ---
+                    // Added a link to the h3 using the sectionId from your JSON
+                    tocHTML += `<div class="toc-section">
+                                    <h3><a href="#${section.sectionId}" class="toc-section-link">${section.sectionTitle}</a></h3>
+                                    <ul class="toc-list">`;
+                    
+                    // --- Build Main Content Section Header ---
+                    // Added the id attribute so the sidebar link has a target to scroll to
+                    projectsHTML += `<h2 id="${section.sectionId}" class="section-title">${section.sectionTitle}</h2>`;
+                    
+                    // Loop through each Project in this section
+                    section.projects.forEach(project => {
+                        // Add link to sidebar using the short title (or fall back to full title if missing)
+                        tocHTML += `<li><a href="#${project.id}">${project.shortTitle || project.title}</a></li>`;
+
+                       // --- Handle Download Buttons Logic ---
+                        let downloadsHTML = '';
+                        
+                        // Check if downloads exist in the JSON to avoid errors
+                        if (project.downloads) {
+                            if (project.type === 'ansys') {
+                                // Ansys projects get a single .wbpz button
+                                downloadsHTML = `<a href="${project.downloads.wbpz}" class="btn-download" download>Download .wbpz</a>`;
+                            } else {
+                                // Standard Parts and Assemblies get the CAD and STL buttons
+                                const cadText = project.type === 'assembly' ? 'Download Assembly (.zip)' : 'Download .SLDPRT';
+                                const stlText = project.type === 'assembly' ? 'Download STLs (.zip)' : 'Download .STL';
+                                
+                                downloadsHTML = `
+                                    <a href="${project.downloads.cad}" class="btn-download" download>${cadText}</a>
+                                    <a href="${project.downloads.stl}" class="btn-download" download>${stlText}</a>
+                                `;
+                            }
+                        }
+
+                        // --- New Variable for Thumbnails ---
+                        let thumbnailsHTML = `<div class="carousel-thumbnails">`;
+                        let slideIndex = 0; // Tracks the current index for clicking
+
+                        // 1. Conditionally Build 3D Model HTML
+                        let modelHTML = '';
+                        if (project.model3d && project.model3d !== "") {
+                            modelHTML = `
+                                <div class="p-slide">
+                                    <model-viewer src="${project.model3d}" alt="3D Model of ${project.title}" auto-rotate camera-controls></model-viewer>
+                                    <p class="slide-label">Interactive 3D Render</p>
+                                </div>`;
+                            thumbnailsHTML += `<button class="thumbnail active" data-index="${slideIndex}" title="3D Model">🧊</button>`;
+                            slideIndex++;
+                        }
+
+                        // 2. Conditionally Build Image/Video/Extra 3D HTML
+                        let mediaHTML = '';
+                        project.images.forEach(media => {
+                            const captionHTML = media.caption ? `<p class="slide-label">${media.caption}</p>` : '';
+                            const altText = media.caption || 'Portfolio Media';
+                            const isActive = slideIndex === 0 ? 'active' : ''; // Make first thumb active if there's no primary 3D model
+
+                            if (media.type === 'video') {
+                                mediaHTML += `
+                                    <div class="p-slide">
+                                        <video src="${media.url}" autoplay loop muted playsinline controls></video>
+                                        ${captionHTML}
+                                    </div>`;
+                                thumbnailsHTML += `<button class="thumbnail ${isActive}" data-index="${slideIndex}" title="${altText}">🎬</button>`;
+                                
+                            } else if (media.type === '3d') {
+                                // --- NEW: Handle additional 3D models ---
+                                mediaHTML += `
+                                    <div class="p-slide">
+                                        <model-viewer src="${media.url}" alt="${altText}" auto-rotate camera-controls></model-viewer>
+                                        ${captionHTML}
+                                    </div>`;
+                                thumbnailsHTML += `<button class="thumbnail ${isActive}" data-index="${slideIndex}" title="${altText}">🧊</button>`;
+                                
+                            } else {
+                                mediaHTML += `
+                                    <div class="p-slide">
+                                        <img src="${media.url}" alt="${altText}">
+                                        ${captionHTML}
+                                    </div>`;
+                                thumbnailsHTML += `<button class="thumbnail ${isActive}" data-index="${slideIndex}" title="${altText}">
+                                                       <img src="${media.url}" alt="Thumbnail">
+                                                   </button>`;
+                            }
+                            slideIndex++;
+                        });
+                        
+                        thumbnailsHTML += `</div>`; // Close the thumbnail container
+
+                        // Company tag is optional
+                        const companyHTML = project.company ? `<p class="company-tag">${project.company}</p>` : '';
+
+                        // --- Build the Project Card ---
+                        projectsHTML += `
+                            <section id="${project.id}" class="portfolio-card">
+                                <h3>${project.title}</h3>
+                                ${companyHTML}
+                                <p>${project.description}</p>
+                                
+                                <div class="portfolio-carousel-container">
+                                    <button class="expand-btn">Expand ⤢</button>
+                                    <button class="close-btn">Close ✖</button>
+                                    <button class="p-prev-btn">&#10094;</button>
+                                    <button class="p-next-btn">&#10095;</button>
+                                    
+                                    <div class="p-carousel-track">
+                                        ${modelHTML}
+                                        ${mediaHTML}
+                                    </div>
+
+                                    ${thumbnailsHTML}
+                                </div>
+
+                                <div class="download-links">
+                                    ${downloadsHTML}
+                                </div>
+                            </section>
+                        `;
+                    });
+
+                    // Close sidebar list
+                    tocHTML += `</ul></div>`;
+                });
+
+                // 2. Inject HTML into the page
+                tocContainer.innerHTML = tocHTML;
+                projectsContainer.innerHTML = projectsHTML;
+
+                // 3. Initialize the interactive carousels AFTER elements are on the page
+                initializeCarousels();
+            })
+            .catch(error => {
+                console.error("Error loading portfolio data:", error);
+                document.getElementById('projects-container').innerHTML = "<p>Error loading portfolio data.</p>";
+            });
+
+        // --- The Interactive Carousel Logic ---
+        function initializeCarousels() {
+            const carousels = document.querySelectorAll('.portfolio-carousel-container');
+
+            carousels.forEach(container => {
+                const track = container.querySelector('.p-carousel-track');
+                const slides = Array.from(track.children);
+                const prevBtn = container.querySelector('.p-prev-btn');
+                const nextBtn = container.querySelector('.p-next-btn');
+                const expandBtn = container.querySelector('.expand-btn');
+                const closeBtn = container.querySelector('.close-btn');
+                let currentIndex = 0;
+
+                // Find thumbnails for this specific carousel
+                const thumbnails = container.querySelectorAll('.thumbnail');
+
+                function updateSlidePosition() {
+                    const slideWidth = slides[0].getBoundingClientRect().width;
+                    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+
+                    // --- NEW: Highlight the active thumbnail ---
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    if (thumbnails[currentIndex]) {
+                        thumbnails[currentIndex].classList.add('active');
+                    }
+
+                    // Reset zoom, origin, and panning on all images
+                    slides.forEach(slide => {
+                        const img = slide.querySelector('img');
+                        if (img) {
+                            img.style.transform = 'translate(0px, 0px) scale(1)';
+                            img.style.transformOrigin = 'center center';
+                            img.style.cursor = 'default';
+                            img.dataset.scale = 1;
+                            img.dataset.translateX = 0;
+                            img.dataset.translateY = 0;
+                        }
+                    });
+                }
+
+                // --- NEW: Allow clicking thumbnails to jump to a slide ---
+                thumbnails.forEach(thumb => {
+                    thumb.addEventListener('click', () => {
+                        currentIndex = parseInt(thumb.dataset.index);
+                        updateSlidePosition();
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < slides.length - 1) currentIndex++;
+                    else currentIndex = 0;
+                    updateSlidePosition();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) currentIndex--;
+                    else currentIndex = slides.length - 1;
+                    updateSlidePosition();
+                });
+
+                expandBtn.addEventListener('click', () => {
+                    container.classList.add('expanded');
+                    setTimeout(updateSlidePosition, 350); 
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    container.classList.remove('expanded');
+                    setTimeout(updateSlidePosition, 350); 
+                });
+
+                slides.forEach(slide => {
+                    const img = slide.querySelector('img');
+                    if (img) {
+                        img.dataset.scale = 1; 
+                        img.dataset.translateX = 0;
+                        img.dataset.translateY = 0;
+                        
+                        let isDragging = false;
+                        let startX, startY;
+
+                        img.addEventListener('dragstart', (e) => e.preventDefault());
+
+                        img.addEventListener('mousedown', (e) => {
+                            if (parseFloat(img.dataset.scale) > 1 && container.classList.contains('expanded')) {
+                                isDragging = true;
+                                startX = e.clientX - parseFloat(img.dataset.translateX);
+                                startY = e.clientY - parseFloat(img.dataset.translateY);
+                                img.style.cursor = 'grabbing';
+                            }
+                        });
+
+                        img.addEventListener('mouseup', () => {
+                            isDragging = false;
+                            if (parseFloat(img.dataset.scale) > 1) img.style.cursor = 'grab';
+                        });
+
+                        img.addEventListener('mouseleave', () => {
+                            isDragging = false;
+                            if (parseFloat(img.dataset.scale) > 1) img.style.cursor = 'grab';
+                        });
+
+                        img.addEventListener('mousemove', (e) => {
+                            if (parseFloat(img.dataset.scale) === 1) {
+                                const rect = img.getBoundingClientRect();
+                                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                                img.style.transformOrigin = `${x}% ${y}%`;
+                            }
+
+                            if (isDragging) {
+                                const tx = e.clientX - startX;
+                                const ty = e.clientY - startY;
+                                img.dataset.translateX = tx;
+                                img.dataset.translateY = ty;
+                                img.style.transform = `translate(${tx}px, ${ty}px) scale(${img.dataset.scale})`;
+                            }
+                        });
+
+                        img.addEventListener('wheel', (e) => {
+                            if (!container.classList.contains('expanded')) return;
+                            e.preventDefault();
+
+                            let scale = parseFloat(img.dataset.scale);
+                            scale += e.deltaY * -0.002;
+                            scale = Math.min(Math.max(1, scale), 5); 
+
+                            img.dataset.scale = scale;
+                            let tx = parseFloat(img.dataset.translateX);
+                            let ty = parseFloat(img.dataset.translateY);
+
+                            if (scale === 1) {
+                                tx = 0; ty = 0;
+                                img.dataset.translateX = 0;
+                                img.dataset.translateY = 0;
+                                img.style.cursor = 'default';
+                            } else {
+                                img.style.cursor = 'grab';
+                            }
+
+                            img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+                        });
+                    }
+                });
+
+                window.addEventListener('resize', updateSlidePosition);
+            });
+        }
+
+        // Global Keyboard Controls
+        document.addEventListener('keydown', (e) => {
+            const activeContainer = document.querySelector('.portfolio-carousel-container.expanded');
+            if (!activeContainer) return;
+
+            if (e.key === 'ArrowRight') {
+                activeContainer.querySelector('.p-next-btn').click();
+            } else if (e.key === 'ArrowLeft') {
+                activeContainer.querySelector('.p-prev-btn').click();
+            } else if (e.key === 'Escape') {
+                activeContainer.querySelector('.close-btn').click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+write description for nasal models
+ - download .glbs
+fix image behind hero tagline: higher resolution image
+ansys projects
+upload resume file named "Timothy_Lasater_Resume.pdf"
+ensure all download links work
+
+{
+          "id": "promptly-pad",
+          "title": "PROMPTly Diagnostic Pad",
+          "shortTitle": "",
+          "company": "PROMPTly Senior Design Project",
+          "description": "CAD mockup for an at-home diagnostic pad integrating a lateral flow immunoassay. The multi-part assembly focuses on accurate fluid routing and volume-control mechanisms to achieve a controlled flow to the testing strip.",
+          "type": "assembly",
+          "model3d": "assets/promptly-pad.glb",
+          "images": [
+            { "url": "assets/promptly-sw.jpg", "caption": "SolidWorks Assembly" },
+            { "url": "assets/promptly-irl.jpg", "caption": "Physical Prototype" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/promptly_assembly.zip",
+            "stl": "assets/downloads/promptly_stls.zip"
+          }
+        },

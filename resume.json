@@ -1,0 +1,86 @@
+{
+  "experience": [
+    {
+      "role": "Research Associate / Device Engineer",
+      "company": "Scientific Horizons Consulting",
+      "link": "https://www.linkedin.com/company/scientific-horizons/",
+      "logo": "assets/scientific_horizons_consulting_logo.jpg",
+      "date": "October 2024 - Present",
+      "bullets": [
+        "Lead design and prototyping of portable nebulizer devices with novel actuation and drug delivery mechanisms in SolidWorks; led development of <strong>>25</strong> device iterations",
+        "Design and construct models of the nasal passages and sinuses from CT data to evaluate aerosol delivery efficiency to target areas",
+        "Construct benchtop circuits & apparatus to validate nebulizer designs against commercial competitors, measuring pulsatile airflow frequency, flow rate, & pressure amplitude",
+        "Conduct benchtop testing to evaluate aerosolization efficiency, dissolution, and permeation using custom-designed, 3D printed simulated oral environment, informing design improvements",
+        "Developed a novel experimental protocol integrating dissolution and permeation assays to simulate simultaneous oral drug delivery dynamics, which was adopted company-wide",
+        "Instructed colleagues in execution of <strong>>5</strong> novel experimental protocols"
+      ],
+      "projects": [
+        { "name": "Nasal Sinus Model", "link": "portfolio.html#sinus-model" },
+        { "name": "Nasal Passages Model", "link": "portfolio.html#nasal-model" },
+        { "name": "Dissolution + Permeation Cell", "link": "portfolio.html#dissolution-cell" }
+      ]
+    },
+    {
+      "role": "Founder & Team Lead",
+      "company": "PROMPTly: Integrated Diagnostic Pad for Amniotic Fluid Detection",
+      "link": "https://www.linkedin.com/company/promptly-medtech/",
+      "logo": "assets/promptly_logo.jpg",
+      "date": "February 2025 - Present",
+      "bullets": [
+        "Leading design of an at-home diagnostic pad integrating a lateral flow immunoassay (LFT) for detecting biomarkers of Premature Rupture of Membranes (PROM) in amniotic fluid",
+        "Develop and test fluid-routing and volume-control mechanisms to achieve controlled flow",
+        "Optimize material and flow paths with synthetic fluid analogs to validate sensitivity & specificity",
+        "Evaluated material biocompatibility according to <strong>ISO 10993</strong>",
+        "Direct development, prototyping, & market analysis, considering user needs and manufacturing",
+        "Define business plan, go-to-market strategy, regulatory considerations, and IP pathway"
+      ],
+      "projects": [
+        { "name": "PROMPTly Diagnostic Pad", "link": "portfolio.html#promptly-pad" }
+      ]
+    },
+    {
+      "role": "Undergraduate Researcher",
+      "company": "Hui Lab, University of California, Irvine",
+      "link": "https://hui.bme.uci.edu/",
+      "logo": "assets/hui-logo.png",
+      "date": "June 2024 - Present",
+      "bullets": [
+        "Designed and constructed an automated droplet pump for combinatorial drug screening with computer vision tracking, reducing experimental duration and error rate by up to <strong>70%</strong>",
+        "Secured <strong>$1,500</strong> in funding and presented at the UCI Undergraduate Research Symposium",
+        "Simulated and optimized microfluidic flow and mixing using CFD software, improving model accuracy by more than <strong>50%</strong> and real-life mixing performance by over <strong>33%</strong>",
+        "Optimized low-cost fabrication process to expedite microfluidic design-build-test cycle by <strong>90%</strong>, which was implemented in a microfluidics lab class at UCI with <strong>>60</strong> students"
+      ],
+      "projects": [
+        { "name": "Computer Vision Camera Fixture", "link": "portfolio.html#droplet-pump" },
+        { "name": "Flow Simulation of Microfluidic Channels", "link": "portfolio.html#flow-simulation" }
+      ]
+    },
+    {
+      "role": "Manufacturing Engineering Intern",
+      "company": "Medtronic Cardiac Surgery",
+      "link": "https://www.medtronic.com",
+      "logo": "assets/medtronic_logo.jpg",
+      "date": "June 2025 - August 2025",
+      "bullets": [
+        "Applied Lean Six Sigma methodologies, including DMAIC, Gemba observation and statistics (Minitab), to engineer a solution to a longstanding, recurring product quality defect (<strong>25+</strong> years)",
+        "Spearheaded implementation of a scalable process improvement potentially reducing defect rate by <strong>20%</strong>, cycle time by <strong>75%</strong>,  and with projected annual savings of <strong>$50,000</strong>",
+        "Implemented 5S principles to reorganize a space-constrained Class 7 cleanroom, enabling the successful integration of new equipment that was previously unviable due to clutter",
+        "Collaborated with R&D, Quality, and line operators to coordinate testing protocols and accelerate verification and validation timelines by two weeks, ensuring seamless handoff after internship",
+        "Edited & created new procedure documents in <strong>ISO 13485</strong>-compliant quality management system"
+      ]
+    },
+    {
+      "role": "Industry Correspondent",
+      "company": "Biomedical Engineering Society (BMES) at UCI",
+      "link": "https://www.linkedin.com/in/bmesatucirvine/",
+      "logo": "assets/bmes_logo.jpg",
+      "date": "December 2024 - Present",
+      "bullets": [
+        "Planned and organized Industry Night, a MedTech-focused career fair with <strong>24</strong> company sign-ups, attended by <strong>47</strong> representatives and <strong>>200</strong> students",
+        "Planned and organized Research Symposium, attended by <strong>28</strong> representatives from <strong>19</strong> different research labs and <strong>98</strong> students.",
+        "Organized <strong>3</strong> company tours, <strong>5</strong> info sessions, and <strong>9</strong> career-focused events on campus",
+        "Maintain communication with industry contacts"
+      ]
+    }
+  ]
+}

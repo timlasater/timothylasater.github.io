@@ -1,0 +1,314 @@
+{
+  "sections": [
+    {
+      "sectionId": "professional",
+      "sectionTitle": "Professional Projects",
+      "projects": [
+        {
+          "id": "sinus-model",
+          "title": "Nasal Sinus Model for Drug Delivery Testing",
+          "shortTitle": "Nasal Sinus Model",
+          "company": "Scientific Horizons Consulting",
+          "description": "A model of the nasal passages and sinuses, designed to evaluate aerosol delivery efficiency to target areas. Constructed from CT data and printed with a clear resin to allow for visualization of aerosol flow patterns. The sinus pieces attach to the center piece with magnets for easy removal. This model was used in benchtop testing to validate nebulizer designs against commercial competitors. After the aerosol deposition, the sinus pieces are removed and washed with a solvent to collect the deposited aerosol, and HPLC is run to determine the amount of drug deposited in each sinus.",
+          "type": "assembly",
+          "model3d": "assets/sinus-assem.glb",
+          "images": [
+            { "url": "assets/sinus-assem.png", "caption": "SolidWorks Assembly" },
+            { "url": "assets/sinus-core.glb", "caption": "Core Piece", "type": "3d" },
+            { "url": "assets/sinus-core.png", "caption": "Core Piece" },
+            { "url": "assets/sinus-core-back.png", "caption": "Core Piece (Back View)" },
+            { "url": "assets/sinus-closeup.jpg", "caption": "Physical Print" },
+            { "url": "assets/sinus-setup.jpg", "caption": "Laboratory setup for deposition measurements" }
+          ],
+          "downloads": {
+            "cad": "https://drive.google.com/file/d/1mYnuNkH9S6R9QUG6jAZ5SgF_7uN-5htX/view?usp=sharing",
+            "stl": "assets/downloads/sinusSTL.zip"
+          }
+        },
+        {
+          "id": "nasal-model",
+          "title": "Nasal Passages Model for Drug Delivery Testing",
+          "shortTitle": "Nasal Passages Model",
+          "company": "Scientific Horizons Consulting",
+          "description": "A model of the nasal passages, not including the sinuses, designed to evaluate aerosol delivery efficiency to target areas, particularly the middle meatus and olfactory region. Constructed from CT data and printed with a clear resin to allow for visualization of aerosol flow patterns using a water-reactive dye. This model was used in benchtop testing to validate nebulizer designs against commercial competitors.",
+          "type": "assembly",
+          "model3d": "assets/nasal-model.glb",
+          "images": [
+            { "url": "assets/nasal-sw.jpg", "caption": "SolidWorks CAD" },
+            { "url": "assets/nasal-assembled.jpg", "caption": "Physical Print" },
+            { "url": "assets/nasal-separated.jpg", "caption": "Internal View" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/nasalSW.zip",
+            "stl": "assets/downloads/nasalSTL.zip"
+          }
+        },
+        {
+          "id": "dissolution-cell",
+          "title": "Simultaneous Dissolution + Permeation Cell",
+          "shortTitle": "Dissolution + Permeation Cell",
+          "company": "Scientific Horizons Consulting",
+          "description": "Designed a custom testing apparatus for a novel drug delivery characterization assay. A modification of the standard Franz cell for permeation assays, this cell allows for the simultaneous evaluation of salivary dissolution and trans-buccal permeation of a target drug in a more faithful simulation of the oral environment. The drug to be tested, in the form of a pouch, is placed in the upper cell (white), suspended by a grid over an artificial or ex-vivo porcine buccal membrane (transparent), with the O-ring (orange) acting as a spacer. The lower cell (grey) contains an inner and outer chamber, printed in transparent resin to allow the operator to see into both chambers. A water bath is circulated through the outer chamber from an external heat source to maintain the system at physiological temperature, entering and exiting through the short ports on the sides. The inner chamber is filled with buffer solution, in contact with the membrane. At time t=0, the upper cell is also filled with buffer solution, and the drug begins to dissolve into solution and permeate across the membrane into the lower cell, simulating the entry of drug into the bloodstream. At predefined timepoints, samples are taken through the long, angled sample port, which allows a small volume to removed without lowering the liquid level away from the membrane. Samples are then analyzed with high-performance liquid chromatography (HPLC) to determine the rate of permeation over time. ",
+          "type": "assembly",
+          "model3d": "assets/DPcell.glb",
+          "images": [
+            { "url": "assets/DP_isometric.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/DP_isometric-2.png", "caption": "Transparent upper cell" },
+            { "url": "assets/DP-section-right.png", "caption": "Section View (right)" },
+            { "url": "assets/DP-section-back.png", "caption": "Section View (back)" },
+            { "url": "assets/DP-irl.jpg", "caption": "Physical Print" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/DP-SW.zip",
+            "stl": "assets/downloads/DP-STL.zip"
+          }
+        },
+        
+        {
+          "id": "droplet-pump",
+          "title": "Camera Fixture for Computer Vision-Controlled Droplet Pump",
+          "shortTitle": "Computer Vision Camera Fixture",
+          "company": "Hui Lab",
+          "description": "A fixture for holding a small camera, lens, and silicone tubing at the correct distances to ensure optimal zoom and focus. This is part of a larger project to automatically dispense single droplets, containing cells and drug candidates, into a laboratory well plate for luminescence assays. As droplets pass through the camera's field of view, the computer vision software tracks their position, calculates their velocity, and cuts off the pump after it is calculated that exactly one droplet has been dispensed. This assembly includes the main cylindrical fixture, an endcap, and placeholders for the camera, lens, and tubing. Holes cut in the cylinder allow light to enter and allow focusing by twisting the threaded lens.",
+          "type": "assembly",
+          "model3d": "assets/CV_Camera_Fixture.glb",
+          "images": [
+            { "url": "assets/cameraFixtureSW.png", "caption": "SolidWorks Assembly" },
+            { "url": "assets/pump-irl.jpg", "caption": "Lab Implementation" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/cameraFixtureSW.zip",
+            "stl": "assets/downloads/cameraFixtureSTL.zip"
+          }
+        },
+        {
+          "id": "flow-simulation",
+          "title": "SOLIDWORKS Flow Simulation of Microfluidic Channel Geometries",
+          "shortTitle": "Flow Simulation of Microfluidic Channels",
+          "company": "Hui Lab",
+          "description": "Simulated and optimized microfluidic flow and mixing using SOLIDWORKS Flow Simulation, based on the design put forward by Shannon et al. in 'Isolation of circulating tumor cells using a microvortex-generating herringbone-chip.' (PNAS, 2010). This project involved creating CAD models of various microfluidic channel geometries, running flow simulations to evaluate mixing efficiency, and iterating on the designs to improve performance. The optimized designs were then fabricated and tested in the lab, resulting in improved mixing performance by over 33%.",
+          "type": "assembly",
+          "images": [
+            { "url": "assets/microvortex.mp4", "caption": "Microvortices Animation", "type": "video" },
+            { "url": "assets/micro-vortices.png", "caption": "Microvorticies from above" },
+            { "url": "assets/micro-chevrons.png", "caption": "Mixing demonstrated over the channel length" },
+            { "url": "assets/microfluidics-chevrons.glb", "caption": "Chip Design", "type":"3d" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/microfluidic-chevrons.SLDPRT",
+            "stl": "assets/downloads/microfluidic-chevrons.STL"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "class-projects",
+      "sectionTitle": "Class Projects",
+      "projects": [
+        {
+          "id": "positional-plagiocephaly",
+          "title": "Ansys FEA: Cranial Orthotic Therapy for Positional Plagiocephaly",
+          "shortTitle": "FEA: Cranial Orthotic Therapy",
+          "company": "BME 112: Finite Element Analysis",
+          "description": "The goal of this project was to develop a computational model to simulate the forces applied to an infant's skull during cranial orthotic (helmet) therapy. By modeling these interactions, we aimed to improve the design of helmet braces specifically for severe cases of positional plagiocephaly (PP), a condition where an infant's head becomes flat or misshapen.We sought to identify the optimal materials and shapes that exert the best pressure on the skull based on a child's specific age and head shape. The model aimed to predict whether the therapy can reduce the Cranial Vault Asymmetry Index (CVAI) below the clinical threshold of 6.25%.",
+          "type": "ansys",
+          "images": [
+            { "url": "assets/helmet-total-deformation.gif", "caption": "Total Deformation (mm)" },
+            { "url": "assets/helmet-half-mesh.png", "caption": "Mesh" },
+            { "url": "assets/helmet-stress.gif", "caption": "Von Mises Stress (MPa)" },
+            { "url": "assets/helmet-strain.gif", "caption": "Equivalent Strain (mm/mm)" },
+            { "url": "assets/helmet-total-deformation-final.png", "caption": "Total Deformation (final)" },
+            { "url": "assets/helmet-results.jpg", "caption": "Final Results" }
+          ],
+          "downloads": {
+            "wbpz": "https://drive.google.com/file/d/1RA_PeixWl0Xtphvks7HNfegfC4uyG7v8/view?usp=sharing"
+          }
+        },
+        {
+          "id": "arterial-bifurcation",
+          "title": "Ansys CFD: Arterial Bifurcation Flow Simulation",
+          "shortTitle": "CFD: Arterial Bifurcation",
+          "company": "BME 112: Finite Element Analysis",
+          "description": "Computational fluid dynamics simulation of blood flow through an arterial bifurcation. This project involved importing a 3D model of the arterial geometry, setting up boundary conditions, and using Ansys CFD to analyze the flow patterns and pressure distributions. The results provided insights into the hemodynamics of the bifurcation.",
+          "type": "ansys",
+          "images": [
+            { "url": "assets/artery-contours.png", "caption": "Velocity and pressure contours along the midplane of the arterial geometry" },
+            { "url": "assets/artery-mesh.png", "caption": "Mesh cross-section showing wall layers" },
+            { "url": "assets/artery.glb", "caption": "Arterial Geometry", "type": "3d" }
+          ],
+          "downloads": {
+            "wbpz": "https://drive.google.com/file/d/1aUnK7_HQf4z9odh0FEt9cIYJ79TOIcIZ/view?usp=sharing"
+          }
+        }
+      ]
+    },
+    {
+      "sectionId": "everyday-engineering",
+      "sectionTitle": "Everyday Engineering",
+      "projects": [
+        {
+          "id": "duck",
+          "title": "Toy Duck Assembly",
+          "shortTitle": "",
+          "description": "A toy duck with wings that can flap and feet that can waddle. Designed in SolidWorks and printed on a Creality Ender 3 Pro. The wings are connected via a rack and pinion mechanism, where the central button can be pushed down to engage the gears and flap the wings. The feet can hang from a simple pivot; or when the duck is set down, it can be balanced upright on the feet.",
+          "type": "assembly",
+          "model3d": "assets/duck.glb",
+          "images": [
+            { "url": "assets/duckSW1.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/duck-boomerang.gif", "caption": "Motion Study" },
+            { "url": "assets/duck-flap.mp4", "caption": "The wings can flap!", "type": "video" },
+            { "url": "assets/duck-waddle.mp4", "caption": "The feet can waddle, but it can still sit upright.", "type": "video" },
+            { "url": "assets/duck-sitting.jpg"},
+            { "url": "assets/duckSW3.png", "caption": "Transparent view of the internal mechanism" },
+            { "url": "assets/duckSW2.png"}
+          ],
+          "downloads": {
+            "cad": "assets/downloads/duckSW.zip",
+            "stl": "assets/downloads/duckSTL.zip"
+          }
+        },
+        {
+          "id": "smiski-balcony",
+          "title": "Smiski Balcony",
+          "shortTitle": "",
+          "company": "",
+          "description": "A balcony for displaying Smiskis and other small figurines. Printed in multiple parts that are glued together. The back posts include slots for an adhesive strip to allow for wall mounting.",
+          "type": "assembly",
+          "model3d": "assets/smiski-balcony.glb",
+          "images": [
+            { "url": "assets/smiski-balcony-sw.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/balcony_irl.jpg", "caption": "Physical Print" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/smiski-balconySW.zip",
+            "stl": "assets/downloads/smiski-balconySTL.zip"
+          }
+        },
+        {
+          "id": "music-stand",
+          "title": "Music Stand Extenders",
+          "shortTitle": "",
+          "description": "Designed and printed extensions that slide onto a standard folding music stand. They widen the backrest to securely hold up to four pages of sheet music at once, instead of the standard two pages. The extensions are designed to be easily attached and removed by simply sliding on or off, allowing for flexibility in use. This project was a practical solution to a common problem faced by musicians (me!) who need to display more sheet music during practice sessions.",
+          "type": "part",
+          "model3d": "assets/music_stand_extender.glb",
+          "images": [
+            { "url": "assets/music-stand-extender.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/music-irl-1.jpg", "caption": "On Stand" },
+            { "url": "assets/music-irl-2.jpg", "caption": "With Music" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/music-extender.SLDPRT",
+            "stl": "assets/downloads/music-extender.STL"
+          }
+        },
+        {
+          "id": "thermometer-holder",
+          "title": "Thermometer Holder for Kitchen Kettle",
+          "shortTitle": "Thermometer Holder",
+          "company": "",
+          "description": "A custom-fit bracket to safely suspend a probe thermometer inside my kitchen kettle. This ensures precise water temperature readings, which is essential for properly brewing delicate green and oolong loose-leaf teas, as well as yerba mate, without scalding the leaves.",
+          "type": "part",
+          "model3d": "assets/thermometer-holder.glb",
+          "images": [
+            { "url": "assets/thermometer-holderSW.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/therm-irl1.jpg", "caption": "Physical Print" },
+            { "url": "assets/therm-irl2.jpg", "caption": "With Thermometer" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/thermometer-holder.SLDPRT",
+            "stl": "assets/downloads/thermometer-holder.STL"
+          }
+        },
+        {
+          "id": "sponge-holder",
+          "title": "Sponge Holder for Kitchen Sink",
+          "shortTitle": "Sponge Holder",
+          "company": "",
+          "description": "A holder for the sponge and soap dispenser in my kitchen sink. The design allows for water to drain off the sponge and dispenser and into the sink, preventing it from sitting in a pool of water and getting gross. The sponge and dispenser sit on raised ridges, allowing the underside to dry via evaporation.",
+          "type": "part",
+          "model3d": "assets/sponge-holder.glb",
+          "images": [
+            { "url": "assets/sponge-holder-sw.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/sponge-irl-1.jpg", "caption": "Physical Print" },
+            { "url": "assets/sponge-irl-2.jpg", "caption": "With Sponge" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/sponge-holder.SLDPRT",
+            "stl": "assets/downloads/sponge-holder.STL"
+          }
+        },
+        {
+          "id": "drawer-part",
+          "title": "Custom Drawer Part Replacement",
+          "shortTitle": "Drawer Part Replacement",
+          "company": "",
+          "description": "Recreated a plastic part of a drawer in my bathroom that had broken. It suspends the drawer from a wooden rail and allows it to slide in & out.",
+          "type": "part",
+          "model3d": "assets/drawer-part.glb",
+          "images": [
+            { "url": "assets/drawer-partSW.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/drawer-part-irl.jpg", "caption": "Physical Print" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/drawer-part.SLDPRT",
+            "stl": "assets/downloads/drawer-part.STL"
+          }
+        },
+        {
+          "id": "filament-wheel",
+          "title": "Filament Wheel for 3D Printer",
+          "shortTitle": "Filament Wheel",
+          "company": "",
+          "description": "A wheel designed to hold a spool of 3D printer filament. It allows for smoother unwinding of the filament during printing, reducing tension and preventing tangling. The wheel is designed to fit standard filament spools and can be easily mounted on a rod or axle for rotation. The two parts twist-lock together for easy assembly and disassembly, allowing for convenient loading and unloading of filament spools.",
+          "type": "assembly",
+          "model3d": "assets/filament_wheel.glb",
+          "images": [
+            { "url": "assets/filament-wheelSW.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/filament-wheel-irl-1.jpg", "caption": "Both Pieces" },
+            { "url": "assets/filament-wheel-irl-2.jpg", "caption": "With Filament Spool" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/filament-wheelSW.zip",
+            "stl": "assets/downloads/filament-wheelSTL.zip"
+          }
+        },
+        {
+          "id": "glass-rack",
+          "title": "Martini Glass Rack",
+          "shortTitle": "Glass Rack",
+          "description": "A small rack that allows a martini glass to be suspended upside down for display on my bar cart. The design includes a slot for the base of the glass to securely fit into, and hooks for easy mounting on the cart. This allows the glass to be displayed in an elegant and space-saving manner, while also preventing dust from settling inside the glass.",
+          "type": "part",
+          "model3d": "assets/glass-holder.glb",
+          "images": [
+            { "url": "assets/glass-holderSW.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/glass-rack-irl-1.jpg", "caption": "Physical Print" },
+            { "url": "assets/glass-rack-irl-2.jpg", "caption": "In Action" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/glass-holder.SLDPRT",
+            "stl": "assets/downloads/glass-holder.STL"
+          }
+        },
+        {
+          "id": "scissors-holder",
+          "title": "Scissors Holder for Kitchen Counter",
+          "shortTitle": "Scissors Holder",
+          "company": "",
+          "description": "A custom-fit bracket to safely hold a pair of scissors upright on my kitchen counter. This ensures the scissors are easily accessible while keeping them clean and organized.",
+          "type": "part",
+          "model3d": "assets/scissor-holder.glb",
+          "images": [
+            { "url": "assets/scissors-holder-sw-1.png", "caption": "SolidWorks CAD" },
+            { "url": "assets/scissors-holder-sw-2.png", "caption": "" },
+            { "url": "assets/scissors-holder-irl-1.jpg", "caption": "Physical Print" },
+            { "url": "assets/scissors-holder-irl-2.jpg", "caption": "With Scissors" }
+          ],
+          "downloads": {
+            "cad": "assets/downloads/scissors-holder.SLDPRT",
+            "stl": "assets/downloads/scissors-holder.STL"
+          }
+        }
+      ]
+    }
+  ]
+}

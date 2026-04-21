@@ -1,0 +1,29 @@
+professional projects:
+Scientific Horizons Consulting:
+
+Model of the nasal passages and sinuses for assessment of targeted drug delivery to the sinuses
+Model of the nasal passages for assessment of targeted drug delivery to the olfactory zone
+Simultaneous dissolution + permeation cell for novel drug delivery characterization assay
+
+Hui Lab:
+Camera fixture for computer vision-controlled droplet pump
+SOLIDWORKS Flow Simulation of microfluidic channel geometries
+
+PROMPTly Senior Design Project:
+Pad assembly - CAD mockup
+
+class projects:
+Ansys FEA: Cranial Orthotic Therapy for Positional Plagiocephaly
+Ansys CFD: Arterial Bifurcation
+
+side projects:
+Toy Duck (assembly including body, 2 wings, 2 legs, and a gear rack which can be pushed down to flap the wings)
+Balcony for Smiski Display
+Music Stand Extenders
+Thermometer Holder for Kitchen Kettle
+Sponge Holder for Kitchen Sink
+Drawer Part Replacement
+3D Printer Filament Wheel
+Martini Glass Holder
+Scissors Holder
+Miffy Glasses Case

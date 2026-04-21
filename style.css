@@ -1,0 +1,936 @@
+/* /*:root {
+    /* --- Core Backgrounds --- */
+    /*--bg-color: #FFFFFF;       /* Pure White: The primary background, keeping the space open and sterile. */
+    /*--card-bg: #F0F4F8;        /* Frost White: A very subtle, cool-toned off-white. Perfect for project cards (like the nebulizer iterations) to separate them from the background without harsh contrast. */
+    
+    /* --- Typography --- */
+    /*--text-color: #0F172A;     /* Deep Slate: Almost black, but slightly cool. Much easier on the eyes than #000000 for reading detailed technical documentation and process improvements. */
+    /* --muted-text: #64748B;     Cool Slate Gray: Your chosen tertiary color. Ideal for dates, image captions, and secondary specs. */
+    
+    /* --- Accents & Interaction --- */
+    /* --accent-color: #0D9488;   Medical Teal: Your chosen secondary color. Used for primary buttons, active links, and prominent headings. */
+    /* --accent-hover: #0F766E;   Deep Teal: A slightly darker shade of the accent for button hover states (like the .SLDPRT download links) to provide clear user feedback. */
+    
+    /* --- Structure & Highlights --- */
+    /* --border-color: #E2E8F0;   Surgical Steel: A crisp, light gray for subtle borders between sections or around 3D model viewers. */
+    /* --highlight: #F59E0B;      Amber/Warning: Use this sparingly to draw the eye to critical data points, like a 75% cycle time reduction or aerosol efficiency metrics, acting like a safety label in a lab. */
+/*} */
+
+:root {
+    /* --- Core Backgrounds --- */
+    --bg-color: #F4F7F5;       /* Minted Alabaster: A very subtle, cool off-white with just a microscopic drop of green to tie the room together. */
+    --card-bg: #FFFFFF;        /* Pure White: Keeps the project cards and 3D models looking crisp and elevated against the slightly tinted background. */
+    
+    /* --- Typography --- */
+    --text-color: #1F2937;     /* Midnight Ash: A deep, rich gray-black that is softer on the eyes than pure black, maintaining that modern web feel. */
+    --muted-text: #6B7280;     /* Stone Gray: Perfect for reading dates, secondary skills, and photo captions without distracting from the main text. */
+    
+    /* --- Accents & Interaction --- */
+    --accent-color: #059669;   /* Vitality Emerald: A vibrant, confident green that passes accessibility standards for readability while popping off the screen. */
+    --accent-hover: #047857;   /* Deep Forest: A darker, grounded green for button hover states to give a satisfying, tactile response when clicked. */
+    
+    /* --- Structure & Highlights --- */
+    --border-color: #E5E7EB;   /* Light Platinum: A clean, faint gray for section dividers and card borders. */
+    --highlight: #0284C7;      /* Ocean Blue: A secondary accent to use sparingly if you ever need to contrast two different data points or emphasize a specific metric. */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: var(--bg-color); /* Blends into the minted alabaster page */
+    padding: 3rem 2rem 1rem 2rem; /* Adjusted for better spacing */
+    text-align: center;
+}
+
+nav {
+    background: var(--card-bg); /* Pure white to pop when scrolling */
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* Make ONLY the nav persistent */
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+}
+/* Styling for the LinkedIn link on the homepage */
+.company-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.company-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+header h1, .card h3, .toc-section h3 {
+    color: var(--text-color);
+}
+
+header p, .date, .caption {
+    color: var(--muted-text);
+}
+
+h2 { 
+    color: var(--accent-color); 
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 10px; 
+    margin-top: 2rem;
+}
+
+.contact-info a, .company-tag {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+}
+
+nav a:hover, .toc-list a:hover {
+    color: var(--accent-color);
+    background: var(--bg-color); /* Adds a subtle highlight behind the link on hover */
+}
+
+#education, #experience, #skills {
+    max-width: 800px;
+    margin: 0rem auto;
+    padding: 0.1rem;
+}
+
+.card, .portfolio-card, .sidebar {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    margin-bottom: 2rem; /* Adds the space between resume entries */
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    border-top: 4px solid var(--accent-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.media-item {
+    background: var(--bg-color); /* Contrasts slightly with the card */
+    border: 1px solid var(--border-color);
+}
+
+.padded-card {
+    padding: 2rem 3rem; /* Adds generous padding so text isn't squished to the left */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.card p {
+    margin: 0.3rem 0;
+}
+
+.date {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+}
+
+h2 { 
+    color: var(--accent-color); 
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 10px; 
+    margin-top: 2rem;
+}
+
+/* Bullet list for resume bullet points */
+.bullet-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.bullet-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Pillboxes for the skills section */
+.skills-list { 
+    display: flex; 
+    flex-wrap: wrap; 
+    list-style: none; 
+    padding: 0; 
+    margin-bottom: 1.5rem;
+}
+
+.skills-list li { 
+    background: var(--card-bg); 
+    margin: 5px; 
+    padding: 5px 15px; 
+    border-radius: 20px; 
+    font-size: 0.9rem; 
+    color: var(--text-color);
+    border: 1px solid #d0d4d8;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Parallax Hero Section --- */
+.parallax-hero {
+    /* The linear-gradient adds a 50% dark tint over your image so the text pops */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/sinus-setup.JPG');
+    
+    /* The magic property that keeps the image fixed while scrolling */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Creates the height of the "window" revealing the image */
+    padding: 8rem 1rem;
+    margin: 0; 
+}
+
+/* Updated, Larger Hero Tagline */
+.hero-tagline {
+    text-align: center;
+    font-size: 3.5rem; /* Increased significantly */
+    color: #ffffff; /* Changed to white to contrast with the photo */
+    margin: 0 auto;
+    font-weight: 300; 
+    line-height: 1.3;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Adds a soft shadow for readability */
+}
+
+.hero-tagline .highlight {
+    font-weight: 700; 
+    color: var(--accent-color)   /* Lightened the blue slightly so it looks better on dark/photo backgrounds */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .parallax-hero {
+        padding: 5rem 1rem;
+        /* Note: iOS Safari struggles with 'fixed' backgrounds, so it's standard practice to switch it to scroll on mobile */
+        background-attachment: scroll; 
+    }
+    .hero-tagline {
+        font-size: 2.2rem; /* Scaled down for smaller screens */
+    }
+}
+
+/* Portfolio Layout */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    align-items: start;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: sticky;
+    top: 2rem;
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--border-color);
+}
+
+.toc-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    display: block; /* Overrides the flex display from the skills list */
+}
+
+.toc-list li {
+    background: transparent;
+    padding: 0;
+    margin: 0 0 8px 0;
+    border: none;
+}
+
+.toc-list a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.toc-list a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Portfolio Cards */
+.portfolio-content {
+    min-width: 0; /* Prevents grid overflow */
+}
+
+.section-title {
+    margin-top: 0;
+}
+
+.portfolio-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.company-tag {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Media Grid for Images and 3D Models */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.media-item {
+    background: #f4f6f8;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0e4e8;
+}
+
+.media-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+model-viewer {
+    width: 100%;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.caption {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* Download Buttons */
+.download-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.floating-resume-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color) !important; /* Forces text to contrast with the accent button */
+}
+
+/* For hover states, you can either hardcode a darker version of your accent, 
+   or use a CSS filter to automatically darken whatever the accent color is! */
+.floating-resume-btn:hover {
+    filter: brightness(0.85); 
+}
+
+/* --- Updated Portfolio Download Buttons --- */
+.btn-download {
+    background-color: var(--accent-color);
+    color: var(--bg-color) !important;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 30px; /* Creates the pill shape */
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Adds depth */
+    transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block; /* Ensures the padding renders correctly on links */
+    text-align: center;
+}
+
+.btn-download:hover {
+    filter: brightness(0.85); /* Slightly darkens the button */
+    transform: scale(1.05);   /* Slight grow effect on hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* Deepens the shadow when hovered */
+}
+
+.carousel-btn {
+    background: var(--card-bg);
+    color: var(--accent-color);
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    color: var(--card-bg);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: relative;
+        top: 0;
+    }
+}
+
+/* --- Carousel Styles --- */
+#featured-work {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #ffffff;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; /* Ensures images fill the space uniformly without stretching */
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-hover);
+    color: var(--bg-color);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* --- Floating Resume Button --- */
+.floating-resume-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: var(--bg-color) !important;
+    padding: 12px 24px;
+    border-radius: 30px; /* Pill shape for a modern look */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Drop shadow so it stands out */
+    z-index: 9999; /* Ensures it stays on top of all other content, including the carousel */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.floating-resume-btn:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-color);
+    transform: scale(1.05); /* Slight grow effect on hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsiveness: Move to bottom right for better thumb reach */
+@media (max-width: 768px) {
+    .floating-resume-btn {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Expandable Portfolio Carousel --- */
+.portfolio-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Small starting height */
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* The Expanded "Almost Full Screen" State */
+.portfolio-carousel-container.expanded {
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
+    width: 90vw;
+    height: 90vh;
+    z-index: 10000;
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.85); /* Dims the background */
+    border-radius: 12px;
+}
+
+/* Track and Slides */
+.p-carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.p-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Ensure images and 3D models scale properly */
+.p-slide img, .p-slide video {
+    max-width: 100%;
+    max-height: 90%;
+    object-fit: contain;
+    background: transparent;
+    transition: transform 0.1s ease-out; /* Smooths out the mouse wheel zoom */
+}
+
+/* Fixes the narrow horizontal bar issue for 3D renders */
+.p-slide model-viewer {
+    width: 100%;
+    height: 100%;
+    max-height: 90%;
+    aspect-ratio: 4 / 3;
+    background: transparent;
+}
+
+/* Labels on the slides */
+.slide-label {
+    position: absolute;
+    bottom: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    pointer-events: none; /* Allows clicking through to the 3D model */
+}
+
+/* Navigation Buttons */
+.p-prev-btn, .p-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 10;
+    transition: 0.2s;
+}
+
+.p-prev-btn { left: 10px; }
+.p-next-btn { right: 10px; }
+
+.p-prev-btn:hover, .p-next-btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Expand / Close Buttons */
+.expand-btn, .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    z-index: 11;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Logic to hide/show buttons based on state */
+.close-btn { display: none; background: #e11d48; color: white; }
+.expanded .expand-btn { display: none; }
+.expanded .close-btn { display: block; }
+
+/* --- Reusable Section Wrapper --- */
+.content-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+/* --- Profile Card --- */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--accent-color); /* Top border instead of left for a different feel */
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-text {
+    flex-grow: 1;
+}
+
+.mission-tagline {
+    color: var(--accent-color);
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 0;
+    line-height: 1.4;
+    border-bottom: none; /* overrides global h3 if needed */
+}
+
+/* Update the Current Role Banner to use Flexbox */
+.current-role-banner {
+    background: var(--bg-color);
+    border-left: 3px solid var(--accent-color);
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+    
+    /* NEW: Puts logo and text side-by-side */
+    display: flex;
+    align-items: center;
+    gap: 1.2rem; 
+}
+
+/* Styling for the SHC Logo in the banner */
+.banner-logo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: var(--bg-color); 
+    border: 1px solid var(--border-color);
+}
+
+/* Ensure the Homepage Carousel 3D Render scales correctly */
+.carousel-slide model-viewer {
+    width: 100%;
+    height: 450px;
+    background-color: #f4f6f8; /* A very soft gray so it doesn't look like an empty void */
+    display: block;
+}
+
+.role-label {
+    display: block;
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+/* Mobile Layout for Profile */
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .current-role-banner {
+        border-left: none;
+        border-top: 3px solid var(--accent-color);
+        border-radius: 0 0 4px 4px;
+    }
+}
+
+/* --- Resume Logo Layout --- */
+.resume-header-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.resume-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain; /* Ensures square or rectangle logos fit without stretching */
+    border-radius: 8px;
+    background: var(--bg-color);
+    padding: 5px;
+    border: 1px solid var(--border-color);
+}
+
+.resume-title-block h3 {
+    margin: 0 0 0.2rem 0;
+}
+
+.resume-title-block p {
+    margin: 0;
+}
+
+/* Mobile Responsiveness for Resume Headers */
+@media (max-width: 768px) {
+    .resume-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* --- Education Logo --- */
+.education-logo {
+    width: 80px;          /* Slightly larger than the resume logos to act as a focal point */
+    height: 80px;
+    object-fit: contain;  /* Prevents the logo from stretching */
+    margin-bottom: 1rem;  /* Adds space between the logo and the university name */
+    
+    /* Matches the styling of your resume logos */
+    background: var(--bg-color);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    
+    /* Ensures it stays centered */
+    display: inline-block; 
+}
+
+/* --- Updated Caption Placement & Size --- */
+.slide-label {
+    position: absolute;
+    top: 15px; 
+    left: 15px;
+    bottom: auto; 
+    background: rgba(0, 0, 0, 0.65); /* Made the background slightly darker for better text contrast */
+    color: #fff;
+    padding: 6px 18px; /* Slightly increased padding to balance the larger text */
+    border-radius: 20px;
+    font-size: 0.95rem; /* Increased from 0.85rem */
+    letter-spacing: 0.5px; /* Added a tiny bit of spacing for readability */
+    pointer-events: none; 
+    z-index: 10;
+}
+
+/* --- Interactive Thumbnail Bar --- */
+.carousel-thumbnails {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 12;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px); /* Creates a modern, frosted glass effect */
+}
+
+.thumbnail {
+    width: 45px;
+    height: 45px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 0;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.thumbnail:hover {
+    opacity: 0.8;
+}
+
+.thumbnail.active {
+    border-color: var(--accent-color);
+    opacity: 1;
+    transform: scale(1.1); /* Gives the active thumbnail a slight "pop" */
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the square perfectly */
+    border-radius: 2px;
+}
+
+/* --- Homepage Carousel Link Styling --- */
+.slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Prevents the caption text from getting underlined like a normal link */
+}
+
+/* Optional: Add a slight brightness change on hover so the user knows it is clickable */
+.slide-link:hover img {
+    filter: brightness(0.9);
+    transition: filter 0.2s ease;
+}
+
+/* --- Resume Portfolio Links Banner --- */
+.resume-portfolio-banner {
+    background: var(--bg-color); 
+    border-left: 3px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+}
+
+.resume-portfolio-banner strong {
+    color: var(--text-color); /* Changed from --accent-color to standard text color */
+    display: inline-block; /* Allows us to add margin below the text */
+}
+
+/* Styling for the new bulleted list inside the banner */
+.portfolio-bullet-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem; /* Space between "Portfolio Links:" and the first bullet */
+    margin-bottom: 0;
+}
+
+.portfolio-bullet-list li {
+    margin-bottom: 0.3rem; /* Small space between each project link */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .resume-portfolio-banner {
+        border-left: none;
+        border-top: 3px solid var(--accent-color);
+        border-radius: 0 0 4px 4px;
+        padding: 1rem;
+    }
+}
+
+/* --- Sidebar Section Title Links --- */
+.toc-section-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.toc-section-link:hover {
+    color: var(--accent-color);
+}

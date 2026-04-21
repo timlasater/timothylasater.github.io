@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timothy Lasater | Biomedical Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Timothy Lasater</h1>
+        <p>Biomedical Engineering @ UC Irvine | Medical Device R&D</p>
+        <p class="contact-info">
+            <a href="mailto:timothy.a.lasater@gmail.com">timothy.a.lasater@gmail.com</a> | 
+            (949) 291-3592 | 
+            <a href="https://linkedin.com/in/timothy-lasater" target="_blank">LinkedIn</a>
+        </p>
+        <a href="assets/Timothy_Lasater_Resume.pdf" class="floating-resume-btn" download>Download Resume</a>
+    </header>
+    
+    <nav>
+            <a href="index.html">Home</a> | 
+            <a href="portfolio.html">Portfolio</a> | 
+            <a href="resume.html">Resume</a> 
+   </nav>
+   
+   <section class="parallax-hero">
+        <div class="hero-tagline">
+            Building the tools that<br>
+            <span class="highlight">make people feel better.</span>
+        </div>
+    </section>
+
+    <section id="about-me" class="content-section">
+        <div class="profile-card">
+            <div class="profile-image-container">
+                <img src="assets/timothy-headshot.jpg" alt="Timothy Lasater" class="profile-photo">
+            </div>
+            <div class="profile-text">
+                <h3 class="mission-tagline">Committed to improving the human condition by advancing the standard of care.</h3>
+                <p>I am a Biomedical Engineering senior at UC Irvine specializing in Micro/Nano-scale Engineering. My work bridges the gap between mechanical design and patient outcomes, with a strong focus on rapid prototyping, fluid dynamics, and drug delivery.</p>
+                
+                <div class="current-role-banner">
+                    <img src="assets/SHC-logo-cropped.jpg" alt="SHC Logo" class="banner-logo">
+                    <div>
+                        <span class="role-label">Current Position</span>
+                        <strong>Research Associate / Device Engineer</strong> 
+                        <br><a href="https://www.linkedin.com/company/scientifichorizons/" target="_blank" rel="noopener noreferrer" class="company-link">Scientific Horizons Consulting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-work" class="content-section">
+        <h2 class="text-center">Featured Designs</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <a href="portfolio.html#sinus-model" class="slide-link">
+                        <img src="assets/sinus-assem.png" alt="Nasal Sinus Model">
+                        <div class="slide-caption">Nasal Sinus Model for Drug Delivery Testing</div>
+                    </a>
+                </div>
+                
+                <div class="carousel-slide">
+                    <a href="portfolio.html#dissolution-cell" class="slide-link">
+                        <img src="assets/DP-section-right.png" alt="Dissolution + Permeation Cell">
+                        <div class="slide-caption">Simultaneous Dissolution + Permeation Cell</div>
+                    </a>
+                </div>
+                
+                <div class="carousel-slide">
+                    <a href="portfolio.html#droplet-pump" class="slide-link">
+                        <img src="assets/cameraFixtureSW.png" alt="Computer Vision Camera Fixture">
+                        <div class="slide-caption">Camera Fixture for Computer Vision-Controlled Droplet Pump</div>
+                    </a>
+                </div>
+                
+                <div class="carousel-slide">
+                    <a href="portfolio.html#duck" class="slide-link">
+                        <img src="assets/duckSW1.png" alt="Toy Duck Assembly">
+                        <div class="slide-caption">Toy Duck Assembly</div>
+                    </a>
+                </div>
+                
+            </div>
+            <button class="carousel-btn next-btn">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="education" class="content-section">
+        <h2 class="text-center">Education</h2>
+        <div class="card text-center">
+            <img src="assets/uci-logo.png" alt="UC Irvine Logo" class="education-logo">
+            <h3>University of California, Irvine</h3>
+            <p class="date">Expected Graduation: June 2026</p>
+            <p><strong>Bachelor of Science, Biomedical Engineering</strong></p>
+            <p>Specialization in Micro/Nano-scale Engineering | <strong>GPA: 3.986</strong></p>
+        </div>
+    </section>
+
+    <section id="cta" class="content-section text-center" style="margin-bottom: 4rem;">
+        <h2>Let's Build Something Meaningful</h2>
+        <p style="margin-bottom: 1.5rem;">I am currently seeking full-time R&D engineering roles starting in Summer 2026.</p>
+        <a href="mailto:timothy.a.lasater@gmail.com" class="btn-download">Get In Touch</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Timothy Lasater | Built with GitHub Pages</p>
+    </footer>
+
+<script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        let currentIndex = 0;
+        let autoAdvanceTimer; // Variable to hold the timer
+
+        // Function to move the carousel
+        function updateCarousel(index) {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(-' + (slideWidth * index) + 'px)';
+        }
+
+        // Function to start the 4-second auto-advance loop
+        function startAutoAdvance() {
+            autoAdvanceTimer = setInterval(() => {
+                nextButton.click(); 
+            }, 4000); 
+        }
+
+        // Function to reset the timer if the user manually clicks
+        function resetAutoAdvance() {
+            clearInterval(autoAdvanceTimer);
+            startAutoAdvance();
+        }
+
+        // Next Button Click Logic
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first slide
+            }
+            updateCarousel(currentIndex);
+            resetAutoAdvance(); // Reset timer on manual interaction
+        });
+
+        // Previous Button Click Logic
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = slides.length - 1; // Loop to the last slide
+            }
+            updateCarousel(currentIndex);
+            resetAutoAdvance(); // Reset timer on manual interaction
+        });
+
+        // Keep carousel aligned if the user resizes their browser window
+        window.addEventListener('resize', () => {
+            updateCarousel(currentIndex);
+        });
+
+        // Start the automatic sliding when the page loads
+        startAutoAdvance();
+    </script>
+</body>
+</html>
