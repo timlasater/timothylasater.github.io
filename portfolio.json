@@ -20,10 +20,7 @@
             { "url": "assets/sinus-closeup.jpg", "caption": "Physical Print" },
             { "url": "assets/sinus-setup.jpg", "caption": "Laboratory setup for deposition measurements" }
           ],
-          "downloads": {
-            "cad": "https://drive.google.com/file/d/1mYnuNkH9S6R9QUG6jAZ5SgF_7uN-5htX/view?usp=sharing",
-            "stl": "assets/downloads/sinusSTL.zip"
-          }
+          "contactOnly": true
         },
         {
           "id": "nasal-model",
@@ -38,10 +35,7 @@
             { "url": "assets/nasal-assembled.jpg", "caption": "Physical Print" },
             { "url": "assets/nasal-separated.jpg", "caption": "Internal View" }
           ],
-          "downloads": {
-            "cad": "assets/downloads/nasalSW.zip",
-            "stl": "assets/downloads/nasalSTL.zip"
-          }
+          "contactOnly": true
         },
         {
           "id": "dissolution-cell",
@@ -58,10 +52,7 @@
             { "url": "assets/DP-section-back.png", "caption": "Section View (back)" },
             { "url": "assets/DP-irl.jpg", "caption": "Physical Print" }
           ],
-          "downloads": {
-            "cad": "assets/downloads/DP-SW.zip",
-            "stl": "assets/downloads/DP-STL.zip"
-          }
+          "contactOnly": true
         },
         
         {
@@ -87,7 +78,7 @@
           "shortTitle": "Flow Simulation of Microfluidic Channels",
           "company": "Hui Lab",
           "description": "Simulated and optimized microfluidic flow and mixing using SOLIDWORKS Flow Simulation, based on the design put forward by Shannon et al. in 'Isolation of circulating tumor cells using a microvortex-generating herringbone-chip.' (PNAS, 2010). This project involved creating CAD models of various microfluidic channel geometries, running flow simulations to evaluate mixing efficiency, and iterating on the designs to improve performance. The optimized designs were then fabricated and tested in the lab, resulting in improved mixing performance by over 33%.",
-          "type": "assembly",
+          "type": "part",
           "images": [
             { "url": "assets/microvortex.mp4", "caption": "Microvortices Animation", "type": "video" },
             { "url": "assets/micro-vortices.png", "caption": "Microvorticies from above" },

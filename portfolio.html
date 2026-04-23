@@ -68,8 +68,11 @@
                        // --- Handle Download Buttons Logic ---
                         let downloadsHTML = '';
                         
-                        // Check if downloads exist in the JSON to avoid errors
-                        if (project.downloads) {
+                        if (project.contactOnly) {
+                            // Proprietary projects get a subtle italicized note and link
+                            downloadsHTML = `<p style="margin-top: 1rem; color: var(--muted-text);"><em>For more information, please <a href="mailto:timothy.a.lasater@gmail.com" target="_blank" rel="noopener noreferrer" class="company-link">contact me</a>.</em></p>`;
+                            
+                        } else if (project.downloads) {
                             if (project.type === 'ansys') {
                                 // Ansys projects get a single .wbpz button
                                 downloadsHTML = `<a href="${project.downloads.wbpz}" class="btn-download" download>Download .wbpz</a>`;
