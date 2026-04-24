@@ -64,8 +64,10 @@
           "type": "assembly",
           "model3d": "assets/CV_Camera_Fixture.glb",
           "images": [
+            { "url": "assets/camera-diagram.png" },
+            { "url": "assets/camera-setup.png" },
             { "url": "assets/cameraFixtureSW.png", "caption": "SolidWorks Assembly" },
-            { "url": "assets/pump-irl.jpg", "caption": "Lab Implementation" }
+            { "url": "assets/camera-video.mp4", "caption": "CV Demo", "type":"video" }
           ],
           "downloads": {
             "cad": "assets/downloads/cameraFixtureSW.zip",
