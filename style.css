@@ -934,3 +934,25 @@ model-viewer {
 .toc-section-link:hover {
     color: var(--accent-color);
 }
+
+/* --- NDA Confidentiality Banner --- */
+.nda-banner {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-color); /* Uses your Vitality Emerald green */
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nda-banner p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.nda-banner strong {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
